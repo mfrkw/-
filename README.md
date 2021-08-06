@@ -27,6 +27,8 @@
 
 
 ## 設計書
+ER図
+https://drive.google.com/file/d/1_G-eqqHVYKDAv39Zc7udF37oew9zPr4Z/view?usp=sharing
 
 
 ## チャレンジ要素一覧
