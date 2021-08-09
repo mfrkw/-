@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_08_070627) do
+ActiveRecord::Schema.define(version: 2021_08_09_131423) do
+
+  create_table "dogs", force: :cascade do |t|
+    t.string "name"
+    t.integer "foster_id"
+    t.string "area"
+    t.text "introduction"
+    t.string "image_id"
+    t.string "dog_breed"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "fosters", force: :cascade do |t|
     t.string "email", default: "", null: false
