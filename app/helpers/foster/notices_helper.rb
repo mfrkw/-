@@ -1,0 +1,2 @@
+module Foster::NoticesHelper
+end

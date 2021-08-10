@@ -1,0 +1,2 @@
+module Foster::FostersHelper
+end

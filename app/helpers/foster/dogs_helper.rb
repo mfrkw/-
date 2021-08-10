@@ -1,0 +1,2 @@
+module Foster::DogsHelper
+end

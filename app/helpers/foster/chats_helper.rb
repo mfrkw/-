@@ -1,0 +1,2 @@
+module Foster::ChatsHelper
+end

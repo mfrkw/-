@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_09_131423) do
+ActiveRecord::Schema.define(version: 2021_08_10_071803) do
+
+  create_table "chats", force: :cascade do |t|
+    t.integer "member_id"
+    t.integer "foster_id"
+    t.text "messeage"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "dogs", force: :cascade do |t|
     t.string "name"
@@ -41,6 +49,13 @@ ActiveRecord::Schema.define(version: 2021_08_09_131423) do
     t.index ["reset_password_token"], name: "index_fosters_on_reset_password_token", unique: true
   end
 
+  create_table "likes", force: :cascade do |t|
+    t.integer "dog_id"
+    t.integer "member_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "members", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -57,6 +72,14 @@ ActiveRecord::Schema.define(version: 2021_08_09_131423) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_members_on_email", unique: true
     t.index ["reset_password_token"], name: "index_members_on_reset_password_token", unique: true
+  end
+
+  create_table "notices", force: :cascade do |t|
+    t.integer "dog_id"
+    t.integer "member_id"
+    t.integer "foster_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
