@@ -5,6 +5,7 @@ class Foster::DogsController < ApplicationController
   end 
   
   def show
+    @dog = Dog.find(params[:id])
   end 
   
   def new 
@@ -13,8 +14,11 @@ class Foster::DogsController < ApplicationController
   
   def create
     dog = Dog.new(dog_params)
-    dog.save
+    if dog.save
     redirect_to  thanx_foster_dogs_path
+    else
+      render :new
+    end 
     
   end
   
