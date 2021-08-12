@@ -1,0 +1,6 @@
+<%= form_with model:@dog, url: foster_dogs_path, local:true do |f| %>
+
+<p>画像</p>
+  <%= f.attachment_field :image %>
+  <%= f.submit '登録' %>
+<% end %>
