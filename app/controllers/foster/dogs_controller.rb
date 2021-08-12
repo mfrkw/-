@@ -13,11 +13,12 @@ class Foster::DogsController < ApplicationController
   end 
   
   def create
-    dog = Dog.new(dog_params)
-    if dog.save
-    redirect_to  thanx_foster_dogs_path
+    @dog = Dog.new(dog_params)
+    @dog.foster_id = current_foster.id
+    if @dog.save
+    redirect_to  thanx_foster_dogs_path, notice: '登録が完了しました'
     else
-      render :new
+      render :new, notice: '登録に失敗しました'
     end 
   end
   
@@ -28,7 +29,7 @@ class Foster::DogsController < ApplicationController
   def update
     dog = Dog.find(params[:id])
     dog.update!(dog_params)
-    redirect_to foster_dog_path(dog.id)
+    redirect_to foster_dog_path(dog.id), notice: '変更'
   end 
   
   def thanx
@@ -37,7 +38,7 @@ class Foster::DogsController < ApplicationController
   private
   
   def dog_params
-    params.require(:dog).permit(:name, :area, :image, :introduction, :dog_breed)
+    params.require(:dog).permit(:name, :area, :image, :introduction, :dog_breed, :foster_id)
   end
     
   

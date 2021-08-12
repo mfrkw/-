@@ -3,5 +3,5 @@ class Dog < ApplicationRecord
   
   belongs_to :foster
   
-  validates :name, :introduction, :area, :dog_breed,  presence: true
+  validates :name, :introduction, :area, :dog_breed, :image, presence: true
 end

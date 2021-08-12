@@ -13,27 +13,27 @@
     <header>
       <% if foster_signed_in? %>
       <li>
-        <%= link_to "ログアウト", destroy_foster_session_path, method: :delete %>
+        <%= link_to "ログアウト", destroy_foster_session_path, method: :delete, class: 'fas fa-sign-out-alt faa-wrench nav-link badge badge-pill' %>
       </li>
       <li>
-        <%= link_to "マイページ", foster_foster_path(current_foster.id) %>
+        <%= link_to "マイページ", foster_foster_path(current_foster.id), class: 'fas fa-user faa-wrench nav-link badge badge-pill'  %>
       </li>
       <li>
-        <%= link_to "犬の登録", new_foster_dog_path %>
+        <%= link_to "犬の登録", new_foster_dog_path, class: "fas fa-paw"  %>
       </li>
       <li>
-        <%= link_to "犬の一覧", foster_dogs_path %>
+        <%= link_to "犬の一覧", foster_dogs_path, class: "fas fa-dog" %>
       </li>
       <% elsif member_signed_in? %>
       <li>
-        <%= link_to "ログアウト", destroy_member_session_path, method: :delete %>
+        <%= link_to "ログアウト", destroy_member_session_path, method: :delete, class: 'fas fa-sign-out-alt faa-wrench nav-link badge badge-pill' %>
       </li>
       <li>
-        <%= link_to "マイページ", member_member_path(current_member.id) %>
+        <%= link_to "マイページ", member_member_path(current_member.id), class: 'fas fa-user faa-wrench nav-link badge badge-pill'  %>
       </li>
       <% else %>
       <li>
-        <%= link_to "新規登録", new_foster_registration_path %>
+        <%= link_to "新規登録", new_foster_registration_path, class: 'fas fa-user-plus faa-wrench nav-link  badge badge-pill' %>
       </li>
       <li>
         <%= link_to "ログイン", new_foster_session_path %>
