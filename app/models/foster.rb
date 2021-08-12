@@ -6,4 +6,5 @@ class Foster < ApplicationRecord
          
   has_many :dogs, dependent: :destroy
   
+  validates :last_name, :first_name, :postal_code, :email, :telephone_number, :address, presence: true
 end

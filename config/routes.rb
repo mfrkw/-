@@ -30,11 +30,28 @@ Rails.application.routes.draw do
     
   end 
   
+  # member
   
   devise_for :members, controllers: {
     sessions:      'members/sessions',
     passwords:     'members/passwords',
     registrations: 'members/registrations'
   }
+  
+  namespace :member do
+    resources :members, only: [:show, :edit, :update] do
+      collection do
+        patch 'out'
+      end
+    end
+    
+    resources :dogs
+    resources :chats
+    resources :notices
+    
+    
+    
+    
+  end 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

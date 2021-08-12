@@ -8,12 +8,28 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
+　
   <body>
     <header>
       <% if foster_signed_in? %>
       <li>
         <%= link_to "ログアウト", destroy_foster_session_path, method: :delete %>
+      </li>
+      <li>
+        <%= link_to "マイページ", foster_foster_path(current_foster.id) %>
+      </li>
+      <li>
+        <%= link_to "犬の登録", new_foster_dog_path %>
+      </li>
+      <li>
+        <%= link_to "犬の一覧", foster_dogs_path %>
+      </li>
+      <% elsif member_signed_in? %>
+      <li>
+        <%= link_to "ログアウト", destroy_member_session_path, method: :delete %>
+      </li>
+      <li>
+        <%= link_to "マイページ", member_member_path(current_member.id) %>
       </li>
       <% else %>
       <li>

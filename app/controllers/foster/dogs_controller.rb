@@ -19,8 +19,17 @@ class Foster::DogsController < ApplicationController
     else
       render :new
     end 
-    
   end
+  
+  def edit 
+    @dog = Dog.find(params[:id])
+  end
+  
+  def update
+    dog = Dog.find(params[:id])
+    dog.update!(dog_params)
+    redirect_to foster_dog_path(dog.id)
+  end 
   
   def thanx
   end
