@@ -40,6 +40,12 @@
       </li>
     <% end %>
     </header>
+    
+    <% if flash[:notice] %>
+      <p class="alert alert-success">
+        <%= flash[:notice] %>
+      </p>
+    <% end %>
     <%= yield %>
     <footer class="fixed-bottom">
       <div class="d-flex align-items-center justify-content-center text-dark" style="height: 50px;">
