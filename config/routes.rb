@@ -23,7 +23,7 @@ Rails.application.routes.draw do
       end 
     end 
     
-    resources :likes, only: [:index, :create, :destroy]
+   
     resources :chats
     resources :notices
     

@@ -8,10 +8,11 @@ class Member < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :dogs
   
+  
   def already_liked?(dog)
-    self.likes.exists?(dog_id: dog.id)    #selfにはcurrent_memberが入るイメージ
+    self.likes.exists?(dog_id: dog.id)
   end
- 
+#selfにはcurrent_memberが入る
 # trueだったらいいねを外すfalseだったらいいねをつける
  
  

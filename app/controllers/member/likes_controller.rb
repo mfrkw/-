@@ -1,4 +1,6 @@
 class Member::LikesController < ApplicationController
+  before_action :authenticate_member!
+  
   def create
     @like = current_member.likes.create(dog_id: params[:dog_id])
     redirect_back(fallback_location: root_path)
