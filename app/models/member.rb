@@ -5,6 +5,16 @@ class Member < ApplicationRecord
          :recoverable, :rememberable, :validatable
   validates :last_name, :first_name, :postal_code, :email, :telephone_number, :address, presence: true
   
+  has_many :likes, dependent: :destroy
+  has_many :dogs
+  
+  def already_liked?(dog)
+    self.likes.exists?(dog_id: dog.id)    #selfにはcurrent_memberが入るイメージ
+  end
+ 
+# trueだったらいいねを外すfalseだったらいいねをつける
+ 
+ 
   def active_for_authentication?
     super && (self.is_deleted == false)
   end

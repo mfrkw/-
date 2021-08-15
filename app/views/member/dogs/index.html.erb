@@ -5,5 +5,11 @@
   <% end %>
   <%= dog.name %>
   <%= dog.dog_breed %>
+  
+  <% if current_member.already_liked?(dog) %>
+    <%= link_to 'いいね外す',  member_dog_likes_path(dog), method: :delete %>
+  <% else %>
+    <%= link_to 'いいね',  member_dog_likes_path(dog), method: :post %>
+  <% end %>
 <% end %>
 

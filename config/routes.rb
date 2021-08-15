@@ -45,9 +45,13 @@ Rails.application.routes.draw do
       end
     end
     
-    resources :dogs
+    resources :dogs do
+      resource :likes, only: [:create, :destroy]
+    end 
+    
     resources :chats
     resources :notices
+    
     
     
     
