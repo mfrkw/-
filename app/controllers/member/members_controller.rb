@@ -19,7 +19,15 @@ class Member::MembersController < ApplicationController
   end
   
   def out
-  end 
+    @member = member.find(current_foster.id)
+    @member.update(is_deleted: true)
+    # ログアウトさせる
+    reset_session
+    flash[:notice] = "ありがとうございました！またのご利用お待ちしております。"
+    
+    redirect_to root_path
+    
+  end
   
   private
   def member_params

@@ -19,7 +19,13 @@ class Foster::FostersController < ApplicationController
 
   def out
     @foster = Foster.find(current_foster.id)
-    @foster.update(is_deleted)
+    @foster.update(is_deleted: true)
+    # ログアウトさせる
+    reset_session
+    flash[:notice] = "ありがとうございました！またのご利用お待ちしております。"
+    
+    redirect_to root_path
+    
   end
 
 

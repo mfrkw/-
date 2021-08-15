@@ -40,7 +40,9 @@
 </div>
 
 <%= link_to '編集する', edit_foster_foster_path %>
-<%= link_to '退会する', out_foster_fosters_path %>
+<% if foster_signed_in? && @foster.id == current_foster.id %>
+        <%= link_to "退会", out_foster_fosters_path, method: :PATCH, "data-confirm" => "本当に退会しますか？", class: "btn btn-outline-danger" %>
+<% end %>
 
 
 
