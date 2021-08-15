@@ -8,4 +8,5 @@
 <%= @dog.area %>
 
 <br />
-<%= link_to '編集する',  edit_foster_dog_path(@dog.id) %>
+<%= link_to '編集する', edit_foster_dog_path(@dog.id), class: "btn btn-outline-secondary" %>
+<%= link_to '削除する', foster_dog_path(@dog.id), method: :DELETE, "data-confirm" => "本当に削除しますか？", class: "btn btn-outline-danger" %>

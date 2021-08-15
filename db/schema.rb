@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 2021_08_10_071803) do
     t.string "first_name"
     t.string "telephone_number"
     t.string "postal_code"
-    t.boolean "is_deleted"
+    t.boolean "is_deleted", default: false, null: false
     t.text "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -66,7 +66,7 @@ ActiveRecord::Schema.define(version: 2021_08_10_071803) do
     t.string "first_name"
     t.string "postal_code"
     t.text "address"
-    t.boolean "is_deleted"
+    t.boolean "is_deleted", default: false, null: false
     t.string "telephone_number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

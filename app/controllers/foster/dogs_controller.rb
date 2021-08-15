@@ -2,6 +2,7 @@ class Foster::DogsController < ApplicationController
 
   def index
     @dogs = Dog.all
+    
   end
 
   def show
@@ -31,7 +32,13 @@ class Foster::DogsController < ApplicationController
     dog.update!(dog_params)
     redirect_to foster_dog_path(dog.id), notice: '変更しました'
   end
-
+  
+  def destroy
+    @dog = Dog.find(params[:id])
+    @dog.destroy
+    redirect_to foster_dogs_path, notice: '削除しました'
+  end 
+  
   def thanx
   end
 

@@ -36,7 +36,7 @@ class DeviseCreateMembers < ActiveRecord::Migration[5.2]
       t.string :first_name
       t.string :postal_code
       t.text :address
-      t.boolean :is_deleted
+      t.boolean :is_deleted, default: false, null: false
       t.string :telephone_number
       
       t.timestamps null: false

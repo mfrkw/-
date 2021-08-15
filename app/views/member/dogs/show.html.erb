@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+    <div class="col text-center">
+      <%= attachment_image_tag @dog, :image, :fill, 450, 550, format: 'jpeg' %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-7 text-center mt-4">
+      <strong><%= @dog.name %></strong>
+    </div>
+  </div>  
+  <div class="row">
+    <div class="col-md-8 text-right">
+    <p>紹介</p><br />
+      <%= @dog.introduction %>
+    </div>
+  </div>    
+  <div class="row">
+    <div class="col-md-4">
+      <p>遊べる地域</p>
+      <%= @dog.area %>
+    </div>
+  </div>  
+</div>
+  
+
+

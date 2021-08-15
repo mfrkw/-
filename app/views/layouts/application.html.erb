@@ -33,12 +33,16 @@
       <ul class="nav-item">
         <%= link_to "マイページ", member_member_path(current_member.id), class: 'fas fa-user faa-wrench nav-link badge badge-pill'  %>
       </ul>
+      <ul class="nav-item">
+        <%= link_to "犬の一覧", member_dogs_path, class: "fas fa-dog" %>
+      </ul>
       <% else %>
       <ul class="nav-item">
         <%= link_to "新規登録", new_foster_registration_path, class: 'fas fa-user-plus faa-wrench nav-link  badge badge-pill' %>
       </ul>
+      
       <ul class="nav-item">
-        <%= link_to "ログイン", new_foster_session_path %>
+        <%= link_to "犬の一覧", member_dogs_path, class: "fas fa-dog" %>
       </ul>
     <% end %>
     </header>
@@ -49,10 +53,6 @@
       </p>
     <% end %>
     <%= yield %>
-    <footer class="fixed-bottom">
-      <div class="d-flex align-items-center justify-content-center text-dark" style="height: 50px;">
-        <p class="nav-item" id="">&copy;　Matching bow</p>
-      </div>
-    </footer>
+    
   </body>
 </html>

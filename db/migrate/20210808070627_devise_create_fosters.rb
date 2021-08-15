@@ -36,7 +36,7 @@ class DeviseCreateFosters < ActiveRecord::Migration[5.2]
       t.string :first_name
       t.string :telephone_number
       t.string :postal_code
-      t.boolean :is_deleted
+      t.boolean :is_deleted, default: false, null: false
       t.text :address
 
 
