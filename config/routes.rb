@@ -47,6 +47,7 @@ Rails.application.routes.draw do
     
     resources :dogs do
       resource :likes, only: [:create, :destroy]
+       get 'index' => 'likes#index'
     end 
     
     resources :chats

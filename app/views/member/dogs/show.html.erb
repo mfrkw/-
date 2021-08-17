@@ -21,6 +21,9 @@
       <%= @dog.area %>
     </div>
   </div>  
+  <div id="like_<%= @dog.id %>">
+    <%= render "member/likes/like", dog: @dog %>
+  </div>
 </div>
   
 

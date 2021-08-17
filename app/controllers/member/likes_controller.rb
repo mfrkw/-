@@ -1,5 +1,11 @@
 class Member::LikesController < ApplicationController
   before_action :authenticate_member!
+  
+  def index
+    @member =  current_member
+    @likes = Like.where(member_id: @member.id).all
+    @dog = Dog.find(params[:dog_id])
+  end 
 
   def create
     @like = current_member.likes.create(dog_id: params[:dog_id])
@@ -15,4 +21,5 @@ class Member::LikesController < ApplicationController
     # redirect_back(fallback_location: root_path)
   end
 
+  
 end

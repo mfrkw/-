@@ -36,11 +36,14 @@
       <ul class="nav-item">
         <%= link_to "犬の一覧", member_dogs_path, class: "fas fa-dog" %>
       </ul>
+      <ul class="nav-item">
+        <%= link_to "お気に入り一覧", member_dog_index_path(current_member.id), class: "fas fa-dog" %>
+      </ul>
       <% else %>
       <ul class="nav-item">
         <%= link_to "新規登録", new_foster_registration_path, class: 'fas fa-user-plus faa-wrench nav-link  badge badge-pill' %>
       </ul>
-      
+
       <ul class="nav-item">
         <%= link_to "犬の一覧", member_dogs_path, class: "fas fa-dog" %>
       </ul>
@@ -53,6 +56,6 @@
       </p>
     <% end %>
     <%= yield %>
-    
+
   </body>
 </html>
