@@ -4,6 +4,7 @@
   <% end %>
   <%= dog.name %>
   <%= dog.dog_breed %>
-<%= render partial: "likes", dog: dog %>
+<div id="like_<%= dog.id %>">
+<%= render "member/likes/like", dog: dog %>
+</div>
 <% end %>
-

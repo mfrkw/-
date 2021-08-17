@@ -5,4 +5,6 @@ class Dog < ApplicationRecord
   has_many :likes, dependent: :destroy
   
   validates :name, :introduction, :area, :dog_breed, :image, presence: true
+  
+  
 end

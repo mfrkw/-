@@ -3,6 +3,8 @@ class Member::LikesController < ApplicationController
 
   def create
     @like = current_member.likes.create(dog_id: params[:dog_id])
+    @dog = Dog.find(params[:dog_id])
+    
     # redirect_back(fallback_location: root_path) 非同期化
   end
 
