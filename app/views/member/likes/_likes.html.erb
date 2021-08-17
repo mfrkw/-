@@ -1,0 +1,11 @@
+<% if current_member %>
+    <% if current_member.already_liked?(dog) %>
+      <%= link_to member_dog_likes_path(dog), method: :delete, remote: true do %> 
+        <i class="fas fa-heart" style="color:#fb607f"></i>
+      <% end %>
+    <% else %>
+      <%= link_to member_dog_likes_path(dog), method: :post, remote: true do %> 
+        <i class="far fa-heart" style="color:#fb607f"></i>
+      <% end %>
+    <% end %>
+  <% end %>
