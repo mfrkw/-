@@ -39,7 +39,7 @@
   </div>  
 </div>
 <%= link_to '編集する', edit_member_member_path, class: "btn btn-outline-secondary" %>
-<% if foster_signed_in? && @member.id == current_member.id %>
+<% if member_signed_in? && @member.id == current_member.id %>
   <%= link_to "退会", out_member_members_path, method: :PATCH, "data-confirm" => "本当に退会しますか？", class: "btn btn-outline-danger" %>
 <% end %>
 
