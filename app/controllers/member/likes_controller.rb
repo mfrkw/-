@@ -3,8 +3,7 @@ class Member::LikesController < ApplicationController
   
   def index
     @member =  current_member
-    @likes = Like.where(member_id: @member.id).all
-    @dog = Dog.find(params[:dog_id])
+    @likes = Like.where(member_id: @member.id)
   end 
 
   def create
