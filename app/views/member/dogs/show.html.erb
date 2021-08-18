@@ -8,23 +8,27 @@
     <div class="col-md-7 text-center mt-4">
       <strong><%= @dog.name %></strong>
     </div>
-  </div>  
+  </div>
   <div class="row">
     <div class="col-md-8 text-right">
     <p>紹介</p><br />
       <%= @dog.introduction %>
     </div>
-  </div>    
+  </div>
   <div class="row">
     <div class="col-md-4">
       <p>遊べる地域</p>
       <%= @dog.area %>
     </div>
-  </div>  
+  </div>
   <div id="like_<%= @dog.id %>">
     <%= render "member/likes/like", dog: @dog %>
   </div>
 </div>
-  
 
-<%= link_to "DMをする", room_path, class: "fas fa-dog" %>
+<!--if create or show => @room nil?-->
+<% if @isRoom == true %>
+  <%= link_to "DMをする", room_path(@room.id), class: "fas fa-dog" %>
+<% else %>
+
+<% end %>

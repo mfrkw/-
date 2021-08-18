@@ -1,5 +1,6 @@
 <h1>チャットサンプル</h1>
 <% if member_signed_in? %>
+
   <h3><% @member.name %>とのチャットルーム</h3>
   <div class="chat-field">
     <% @messages.each do |m| %>

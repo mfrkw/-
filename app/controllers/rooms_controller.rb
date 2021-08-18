@@ -1,6 +1,7 @@
 class RoomsController < ApplicationController
   def show
     @room = Room.find(params[:id]) 
+    @message = Message.find(params[:id])
     @message = Message.new
     @message = @room.messages #ルームのメッセージ総てを取得
     if member_signed_in?
