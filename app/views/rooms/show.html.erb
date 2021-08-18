@@ -1,0 +1,45 @@
+<h1>チャットサンプル</h1>
+<% if member_signed_in? %>
+  <h3><% @member.name %>とのチャットルーム</h3>
+  <div class="chat-field">
+    <% @messages.each do |m| %>
+      <!-- メッセージがmemberによるものだったら -->
+      <% if m.is_member %>
+        <!-- メッセージを右に寄せる -->
+        <div class="right-message">
+          <%= m.content %>
+        </div>
+      <!-- メッセージがShopによるものだったら -->
+      <% else %>
+        <!-- メッセージを左に寄せる -->
+        <div class="left-message">
+          <%= m.content %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+<% elsif foster_signed_in?%>
+  <h3><% @member.name %>とのチャットルーム</h3>
+  <div class="chat-field">
+    <% @messages.each do |m| %>
+      <!-- メッセージがUserによるものだったら -->
+      <% if m.is_member %>
+        <!-- メッセージを左に寄せる -->
+        <div class="left-message">
+          <%= m.content %>
+        </div>
+      <!-- メッセージがShopによるものだったら -->
+      <% else %>
+        <!-- メッセージを右に寄せる -->
+        <div class="right-message">
+          <%= m.content %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>
+
+<%= form_for [@room, @message] do |f| %>
+  <%= f.text_field :content %>
+  <%= f.submit "メッセージを送る"%>
+<% end %>

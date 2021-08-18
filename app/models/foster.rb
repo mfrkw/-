@@ -5,6 +5,7 @@ class Foster < ApplicationRecord
          :recoverable, :rememberable, :validatable
          
   has_many :dogs, dependent: :destroy
+  has_many :rooms, dependent: :destroy
   
   validates :last_name, :first_name, :postal_code, :email, :telephone_number, :address, presence: true
   

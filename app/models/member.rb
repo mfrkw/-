@@ -7,6 +7,7 @@ class Member < ApplicationRecord
   
   has_many :likes, dependent: :destroy
   has_many :dogs
+  has_many :rooms, dependent: :destroy
   
   
   def already_liked?(dog)

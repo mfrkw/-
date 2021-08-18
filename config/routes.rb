@@ -22,12 +22,6 @@ Rails.application.routes.draw do
         patch 'out'
       end
     end
-
-
-    resources :chats
-    resources :notices
-
-
   end
 
   # member
@@ -51,13 +45,13 @@ Rails.application.routes.draw do
     end
     get 'likes' => 'likes#index' ##お気に入り一覧出すためのルート　一覧を出すのにdogいらない
 
-    resources :chats
-    resources :notices
-
-
-
-
-
   end
+  
+  resources :rooms, :only => [:show, :create] do
+    resources :messages, :only => [:create]
+  end 
+  
+  resources :notices
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -26,6 +26,9 @@
       <ul class="nav-item">
         <%= link_to "犬の一覧", foster_dogs_path, class: "fas fa-dog" %>
       </ul>
+      <ul class="nav-item">
+        <%= link_to "メッセージ", room_path(current_foster.id), class: "far fa-envelope" %>
+      </ul>
       <% elsif member_signed_in? %>
       <ul class="nav-item">
         <%= link_to "ログアウト", destroy_member_session_path, method: :delete, class: 'fas fa-sign-out-alt faa-wrench nav-link badge badge-pill' %>

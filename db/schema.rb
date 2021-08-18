@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_10_071803) do
+ActiveRecord::Schema.define(version: 2021_08_18_053850) do
 
   create_table "chats", force: :cascade do |t|
     t.integer "member_id"
@@ -74,12 +74,30 @@ ActiveRecord::Schema.define(version: 2021_08_10_071803) do
     t.index ["reset_password_token"], name: "index_members_on_reset_password_token", unique: true
   end
 
+  create_table "messages", force: :cascade do |t|
+    t.integer "room_id"
+    t.boolean "is_member"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["room_id"], name: "index_messages_on_room_id"
+  end
+
   create_table "notices", force: :cascade do |t|
     t.integer "dog_id"
     t.integer "member_id"
     t.integer "foster_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "rooms", force: :cascade do |t|
+    t.integer "member_id"
+    t.integer "foster_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["foster_id"], name: "index_rooms_on_foster_id"
+    t.index ["member_id"], name: "index_rooms_on_member_id"
   end
 
 end
