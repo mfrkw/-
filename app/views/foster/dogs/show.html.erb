@@ -1,12 +1,14 @@
 <%= attachment_image_tag @dog, :image, :fill, 100, 100, format: 'jpeg' %>
-<p>名前</p>
-<%= @dog.name %>
-<p>紹介</p>
-<%= @dog.introduction %>
+<% if foster_signed_in? && current_foster.id == @dog.foster_id %>
+  <p>名前</p>
+  <%= @dog.name %>
+  <p>紹介</p>
+  <%= @dog.introduction %>
 
-<p>遊べる地域</p>
-<%= @dog.area %>
+  <p>遊べる地域</p>
+  <%= @dog.area %>
 
-<br />
-<%= link_to '編集する', edit_foster_dog_path(@dog.id), class: "btn btn-outline-secondary" %>
-<%= link_to '削除する', foster_dog_path(@dog.id), method: :DELETE, "data-confirm" => "本当に削除しますか？", class: "btn btn-outline-danger" %>
+  <br />
+  <%= link_to '編集する', edit_foster_dog_path(@dog.id), class: "btn btn-outline-secondary" %>
+  <%= link_to '削除する', foster_dog_path(@dog.id), method: :DELETE, "data-confirm" => "本当に削除しますか？", class: "btn btn-outline-danger" %>
+<% end %>

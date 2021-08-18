@@ -1,4 +1,5 @@
 class Foster::DogsController < ApplicationController
+  before_action :authenticate_foster!
 
   def index
     @dogs = Dog.all

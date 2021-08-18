@@ -1,4 +1,5 @@
 class Foster::FostersController < ApplicationController
+  before_action :authenticate_foster!
 
   def show
     @foster = Foster.find(params[:id])
