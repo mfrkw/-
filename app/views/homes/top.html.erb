@@ -7,4 +7,24 @@
             <%= link_to "犬を遊ばせたい", new_foster_registration_path %>
         </div>
     </div>
-</div>
+    <% if foster_signed_in? %>
+       <%= current_foster.last_name %> さんがログインしています。
+
+        <h3>会員一覧</h3>
+        <br/>
+
+        <% @members.each do |member| %>
+            <%= member.last_name %>
+            <!--分岐　roomがあれば入室　なければつくる-->
+            <% if @member_ids.include?(member.id) %>
+            <br/>
+                <%= link_to "チャットへ", room_path(current_foster.rooms.find_by(member_id: member.id)) %> <!--member_idカラムの　member.id を探す-->
+            <% else %>
+                <%= form_for Room.new do |f| %>
+                    <%= f.hidden_field :member_id, :value => member.id %> <!--f.hidden_field そのインスタンスの属性、渡したい値は何か -->
+                    <%= f.submit %>
+                <% end %>
+            <% end %>
+        <% end %>
+    <% end %>
+

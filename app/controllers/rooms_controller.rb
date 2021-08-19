@@ -1,11 +1,10 @@
 class RoomsController < ApplicationController
   def show
     @room = Room.find(params[:id]) 
-    @message = Message.find(params[:id])
     @message = Message.new
-    @message = @room.messages #ルームのメッセージ総てを取得
+    @messages = @room.messages #ルームのメッセージ総てを取得
     if member_signed_in?
-      if @room.member.id == currenr_member.id
+      if @room.member.id == current_member.id
         @foster = @room.foster
       else
         redirect_to "/"
