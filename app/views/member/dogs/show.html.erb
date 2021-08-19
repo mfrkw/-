@@ -30,21 +30,16 @@
 <!--% if @isRoom == true %> -->
 
 <% if member_signed_in? %>
-  <% @fosters.each do |foster| %>
-        <!----roomがあるかどうか分岐させる>-->
-    <% if @foster_ids.include?(foster.id) %>　<!--.includeでfoster.idの検索をかけてる>-->
-      <%= link_to "DMを送る", room_parh(current_member.rooms.find_by(foster_id: foster.id)), class: "fas fa-dog" %> <!--指定したカラムが特定の値を持つレコードを１つ探す。-->
-    <% else %>
-      <%= form_for Room.new do |f| %>
-        <%= f.hidden_field :foster_id, :value => foster.id %> <!--value で渡したい値、つまりfoster.idを渡す-->
-        <%= f.submit %>
-      <% end %>
+  <% if @room.present? %><!----roomがnilどうかで分岐させる>-->
+    <%= link_to "DMを送る", room_path(@room), class: "fas fa-dog" %> 
+  <% else %>
+    <%= form_for Room.new do |f| %>
+      <%= f.hidden_field :foster_id, :value => @foster.id %> <!--:foster_idはキーの名前 value で渡したい値、つまり@foster.idを渡す-->
+      <%= f.submit %>
     <% end %>
   <% end %>
-
-
 
 <% end %>
 
 
-  <!--%= link_to "DMをする", room_path(@room.id), class: "fas fa-dog" %>-->
+  

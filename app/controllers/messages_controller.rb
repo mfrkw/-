@@ -6,13 +6,13 @@ class MessagesController < ApplicationController
   if member_signed_in?
     @message.is_member = true
   elsif foster_signed_in?
-    @message.is_member = false
+    @message.is_member = false      #メッセージがuserによるものだったらis_member=true, fosterによるものだったらis_member=false
   end
   @message.room_id = @room.id
   if @message.save
-    redirect_to room_url(@room)
+    redirect_to room_path(@room)
   else
-    redirect_to room_url(@room)
+    redirect_to room_path(@room)
   end
   end 
   

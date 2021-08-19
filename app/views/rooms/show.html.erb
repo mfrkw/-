@@ -1,7 +1,7 @@
-<h1>DM</h1>
+
 <% if member_signed_in? %>
 
-  <h3><%= current_member.last_name %>さんとのチャットルーム</h3>
+  <h3>チャットルーム</h3>
   <div class="chat-field">
     <% @messages.each do |m| %>
       <!-- メッセージがmemberによるものだったら -->
@@ -21,7 +21,7 @@
   </div>
 
 <% elsif foster_signed_in?%>
-  <h3><% @member.last_name %>とのチャットルーム</h3>
+  <h3>チャットルーム</h3>
   <div class="chat-field">
     <% @messages.each do |m| %>
       <!-- メッセージがUserによるものだったら -->

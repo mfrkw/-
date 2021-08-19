@@ -5,25 +5,19 @@ class Member::DogsController < ApplicationController
   end
   
   def search
-    @dogs = Dog.search(params[:keyword])
-  end
+   @dogs = Dog.search(params[:search])
+  end 
   
   def show 
     @dog = Dog.find(params[:id])
-    @room = Room.find_by(foster_id: @dog.id, member_id: current_member.id)
+    # @room = Room.find_by(foster_id: @dog.id, member_id: current_member.id)
     
     if member_signed_in?
-      @fosters = Foster.all
-      rooms = current_member.rooms
-    #   # 自分が入っているroomで相手のidを格納
-      @foster_ids = [] #ids=主キーのカラムデータを取得する
-      rooms.each do |r|
-        # @foster_ids << r.foster_id　#roomに<<でr.foster_idを追加している
-      end
+      @foster = @dog.foster     #12行目の@dogのfosterを使う
+      @room = Room.where(member_id:current_member.id).where(foster_id:@foster.id).first  #@roomがnilかどうかで部屋判断する
+  
     end
   end 
  
- def search
-   @dogs = Dog.search(params[:search])
- end 
+ 
 end
