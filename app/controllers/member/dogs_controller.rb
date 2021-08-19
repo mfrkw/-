@@ -4,6 +4,10 @@ class Member::DogsController < ApplicationController
     @dogs = Dog.all
   end
   
+  def search
+    @dogs = Dog.search(params[:keyword])
+  end
+  
   def show 
     @dog = Dog.find(params[:id])
     @room = Room.find_by(foster_id: @dog.id, member_id: current_member.id)
@@ -19,4 +23,7 @@ class Member::DogsController < ApplicationController
     end
   end 
  
+ def search
+   @dogs = Dog.search(params[:search])
+ end 
 end

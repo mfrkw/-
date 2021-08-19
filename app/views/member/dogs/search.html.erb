@@ -1,5 +1,3 @@
-<%= render "member/dogs/search" %>
-
 <% @dogs.each do |dog| %>
   <%= link_to member_dog_path(dog.id) do %>
     <%= attachment_image_tag dog, :image, :fill, 100, 100, format: 'jpeg' %>
