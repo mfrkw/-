@@ -12,8 +12,8 @@
             <%= member.last_name %><%= member.first_name %>さんからDMが届いています。
             <br/>
                 <% if @room.present? %><!----roomがnilどうかで分岐させる>-->
-                <!--%= link_to "チャットへ", room_path(@room), class: "fas fa-dog" %> -->
-                <%= link_to "チャットへ", room_path(current_foster.rooms.find_by(member_id: member.id)), class: "fas fa-dog" %> <!--member_idカラムの　member.id を探す
+                <%= link_to "チャットへ", room_path(@room), class: "fas fa-dog" %> 
+                <!--%= link_to "チャットへ", room_path(current_foster.rooms.find_by(member_id: member.id)), class: "fas fa-dog" %> <!--member_idカラムの　member.id を探す-->
                 <% end %>
         <% end %>
     <% end %>
