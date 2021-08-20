@@ -4,6 +4,8 @@ class HomesController < ApplicationController
     
     if foster_signed_in?
     @members = Member.all
+    @foster = current_foster
+    @room = Room.where(member_id:@members.ids).where(foster_id:@foster.id).first  #@roomがnilかどうかで部屋判断する
     # rooms = current_foster.rooms
     # 自分が入っているroomで相手のidを格納
     # @member_ids =[] #ids=主キーのカラムデータを取得する

@@ -10,7 +10,10 @@
   </head>
 
   <body>
-    <header class=class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: #e3f2fd;">
+    <header class="navbar navbar-expand-lg" style="background-color: #e3f2fd;">
+      <%= link_to root_path do %>
+        <%= image_tag 'logo.png', :size => '130x130'%>
+      <% end %>
 
       <% if foster_signed_in? %>
 
@@ -41,9 +44,6 @@
         <%= link_to "お気に入り一覧", member_likes_path, class: "fas fa-dog" %>
       </ul>
       <% else %>
-      <ul class="nav-item">
-        <%= link_to "新規登録", new_foster_registration_path, class: 'fas fa-user-plus faa-wrench nav-link  badge badge-pill' %>
-      </ul>
 
       <ul class="nav-item">
         <%= link_to "犬の一覧", member_dogs_path, class: "fas fa-dog" %>

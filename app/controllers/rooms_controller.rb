@@ -25,11 +25,7 @@ class RoomsController < ApplicationController
       #memberがログインしてたらmember_idを, fosterがログインしてたらfoster_idを@roomにいれる
       @room = Room.new(room_foster_params)
       @room.member_id = current_member.id
-    # elsif foster_signed_in?
-    #   @room = Room.new(room_member_params)
-    #   @room.foster_id = current_foster.id
-    # else
-    #   redirect_to "/"
+    
     end 
     
     if @room.save
