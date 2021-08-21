@@ -1,6 +1,9 @@
 class HomesController < ApplicationController
 
   def top
+  end
+
+  def index
 
     if foster_signed_in?
     @members = Member.all
@@ -17,4 +20,6 @@ class HomesController < ApplicationController
     # end
     end
   end#自分が入ってる Room の相手の情報を配列に格納することで、viewで誰とのチャットなのか見られるようにする
+
+
 end

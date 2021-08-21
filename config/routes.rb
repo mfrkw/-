@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root to: 'homes#top'
-
+  get 'index' => 'homes#index'
   # foster
 
   devise_for :fosters, controllers: {
