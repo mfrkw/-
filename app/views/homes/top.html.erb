@@ -8,13 +8,19 @@
         </div>
     </div>
     <% if foster_signed_in? %>
-        <% @members.each do |member| %>
-            <%= member.last_name %><%= member.first_name %>さんからDMが届いています。
-            <br/>
-                <% if @room.present? %><!----roomがnilどうかで分岐させる>-->
-                <%= link_to "チャットへ", room_path(@room), class: "fas fa-dog" %> 
+        
+        <% if @room.present? %><!----roomがnilどうかで分岐させる>-->
+            <% @room.each do |room| %>
+                <%= link_to "チャットへ", room_path(room), class: "fas fa-dog" %> 
                 <!--%= link_to "チャットへ", room_path(current_foster.rooms.find_by(member_id: member.id)), class: "fas fa-dog" %> <!--member_idカラムの　member.id を探す-->
-                <% end %>
+                <%= room.member.last_name %><%= room.member.first_name %> さんからＤＭが届いています。
+            <% end %>
         <% end %>
     <% end %>
+    
+    
+    <!--@members = [{id:1, name: },{id:2, name: },{id:3, name: }]-->
+    <!--member= {id:1, last_name: ,first_name:""}-->
+    <!--member.last_name-->
+    
 

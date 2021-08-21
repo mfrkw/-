@@ -1,20 +1,25 @@
 <%= form_with model:@dog, url: foster_dogs_path, local:true do |f| %>
 
+<div class="container">
+  <div class="row-text-center">
+    <div class="col-md-8">
+      <p>画像</p>
+        <%= f.attachment_field :image %>
+      
+      <p>名前</p>
+        <%= f.text_field :name %>
+        
+      <p>紹介文</p>
+        <%= f.text_area :introduction %>
+        
+      <p>犬種</p>
+        <%= f.text_field :dog_breed %>
+        
+      <p>遊べる地域</p>
+        <%= f.text_field :area %>
+        <%= f.submit '登録', class: "btn btn-outline-info" %>
+    </div>
+  </div>
+</div>
 
-<p>画像</p>
-  <%= f.attachment_field :image %>
-
-<p>名前</p>
-  <%= f.text_field :name %>
-  
-<p>紹介文</p>
-  <%= f.text_area :introduction %>
-  
-<p>犬種</p>
-  <%= f.text_field :dog_breed %>
-  
-<p>遊べる地域</p>
-  <%= f.text_field :area %>
-  <%= f.submit '登録' %>
-  
 <% end %>

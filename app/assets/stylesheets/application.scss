@@ -10,6 +10,7 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require bxslider
  *= require_tree .
  *= require_self
  */
@@ -31,6 +32,16 @@
   text-align: left;
 }
 
-.right-message{
+.right-message-member{
   text-align: right;
+  padding: 10px;
+}
+
+.right-message-foster{
+  text-align: right;
+  padding: 10px;
+}
+
+.chat-field{
+  background-color: #7494C0;
 }

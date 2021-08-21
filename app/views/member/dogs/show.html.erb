@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col text-center">
-      <%= attachment_image_tag @dog, :image, :fill, 450, 550, format: 'jpeg' %>
+      <%= attachment_image_tag @dog, :image, :fill, 500, 500, format: 'jpeg' %>
     </div>
   </div>
   <div class="row">
@@ -31,7 +31,7 @@
 
 <% if member_signed_in? %>
   <% if @room.present? %><!----roomがnilどうかで分岐させる>-->
-    <%= link_to "DMを送る", room_path(@room), class: "fas fa-dog" %> 
+    <%= link_to "もう一度DMを送る", room_path(@room), class: "fas fa-dog" %> 
   <% else %>
     <%= form_for Room.new do |f| %>
       <%= f.hidden_field :foster_id, :value => @foster.id %> <!--:foster_idはキーの名前 value で渡したい値、つまり@foster.idを渡す-->

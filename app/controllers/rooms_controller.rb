@@ -1,6 +1,6 @@
 class RoomsController < ApplicationController
   def show
-    @room = Room.find(params[:id]) 
+    @room = Room.find(params[:id])
     @message = Message.new
     @messages = @room.messages #ルームのメッセージ総てを取得
     if member_signed_in?
@@ -8,37 +8,37 @@ class RoomsController < ApplicationController
         @foster = @room.foster
       else
         redirect_to "/"
-      end 
+      end
     elsif foster_signed_in?
       if @room.foster.id == current_foster.id
         @member = @room.member
       else
         redirect_to "/"
       end
-    else  
+    else
        redirect_to "/"
-    end 
+    end
   end
-  
+
   def create
     if member_signed_in?
       #memberがログインしてたらmember_idを, fosterがログインしてたらfoster_idを@roomにいれる
       @room = Room.new(room_foster_params)
       @room.member_id = current_member.id
-    
-    end 
-    
+
+    end
+
     if @room.save
       redirect_to :action => "show", :id => @room.id
     else
       redirect_to "/"
-    end 
-  end 
-  
+    end
+  end
+
   private
   def room_foster_params
     params.require(:room).permit(:foster_id)
-  end 
+  end
   def room_member_params
     params.require(:room).permit(:member_id)
   end

@@ -1,7 +1,7 @@
 <div class="mt-3 col-7 align-items-center">
   <h6 class="d-inline-block mb-0">検索</h6>
     <div class="d-inline-block ml-3">
-      <%= form_tag(member_dogs_search_path,:method => 'get') do %>
+      <%= form_tag(search_member_dogs_path,:method => 'get') do %>
         <%= label_tag '犬種で検索' %>
         <%= text_field_tag :search %>
         <%= submit_tag 'Search', :dog_breed => nil %>

@@ -55,7 +55,6 @@ Rails.application.routes.draw do
   
   resources :notices
   
-  get 'member/dogs/search', to: 'dogs#search'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
