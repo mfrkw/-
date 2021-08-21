@@ -6,6 +6,10 @@ class Dog < ApplicationRecord
   
   validates :name, :introduction, :area, :dog_breed, :image, presence: true
   
+  def self.All()
+    Dog.includes(:foster).where(fosters: {is_deleted: false}) #includesで内部結合 is_deletedがfalseの人が退会していない人
+  end
+  
   def self.search(search)
     if search
       Dog.where(['dog_breed LIkE ?',"%#{search}%"])

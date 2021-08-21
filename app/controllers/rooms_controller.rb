@@ -22,24 +22,25 @@ class RoomsController < ApplicationController
 
   def create
     if member_signed_in?
+      # foster_deleted = !!Foster.find_by(id: params[:foster_id])&.is_deleted #trueだったら退会済み　false=退会 &.をつけるとエラーを無視する  find_byでnil !!必ずbooleanで返す(nilをbooleanに)
+
       #memberがログインしてたらmember_idを, fosterがログインしてたらfoster_idを@roomにいれる
-      @room = Room.new(room_foster_params)
+      @room = Room.new(foster_id: params[:foster_id])
       @room.member_id = current_member.id
 
     end
-
-    if @room.save
+    if @room.save  #存在するfosterだったら保存する　&&=かつ
       redirect_to :action => "show", :id => @room.id
     else
       redirect_to "/"
     end
   end
 
-  private
-  def room_foster_params
-    params.require(:room).permit(:foster_id)
-  end
-  def room_member_params
-    params.require(:room).permit(:member_id)
-  end
+  # private
+  # def room_foster_params
+  #   params.permit(:foster_id) #退会してないfosterかどうか
+  # end
+  # def room_member_params
+  #   params.require(:room).permit(:member_id)
+  # end
 end

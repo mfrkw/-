@@ -1,23 +1,27 @@
 class Member::DogsController < ApplicationController
 
   def index
-    @dogs = Dog.all
+    @dogs = Dog.All
   end
-  
+
   def search
-   @dogs = Dog.search(params[:search])
-  end 
-  
-  def show 
-    @dog = Dog.find(params[:id])
+   @dogs = Dog.All.search(params[:search])
+  end
+
+  def show
+    # find(id)で存在しない場合 -> Exception
+    # find_by(id)で存在しない場合 -> nilが返ってくる
+    @dog = Dog.All.find_by(id: params[:id])
+    if @dog == nil
+      redirect_to foster_dogs_path, error: '存在しないidです。'
+    end
     # @room = Room.find_by(foster_id: @dog.id, member_id: current_member.id)
-    
+
     if member_signed_in?
       @foster = @dog.foster     #12行目の@dogのfosterを使う
       @room = Room.where(member_id:current_member.id).where(foster_id:@foster.id).first  #@roomがnilかどうかで部屋判断する
-  
     end
-  end 
- 
- 
+  end
+
+
 end

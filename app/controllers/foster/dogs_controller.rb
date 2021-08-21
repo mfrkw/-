@@ -2,12 +2,14 @@ class Foster::DogsController < ApplicationController
   before_action :authenticate_foster!
 
   def index
-    @dogs = Dog.all
-    
+    @dogs = Dog.All
   end
 
   def show
-    @dog = Dog.find(params[:id]) 
+    @dog = Dog.All.find_by(id: params[:id])
+    if @dog == nil
+      redirect_to foster_dogs_path, error: '存在しないidです。'
+    end
   end
 
   def new
@@ -33,13 +35,13 @@ class Foster::DogsController < ApplicationController
     dog.update!(dog_params)
     redirect_to foster_dog_path(dog.id), notice: '変更しました'
   end
-  
+
   def destroy
     @dog = Dog.find(params[:id])
     @dog.destroy
     redirect_to foster_dogs_path, notice: '削除しました'
-  end 
-  
+  end
+
   def thanx
   end
 
