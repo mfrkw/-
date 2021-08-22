@@ -8,8 +8,8 @@ class HomesController < ApplicationController
     if foster_signed_in?
     @members = Member.all
     @foster = current_foster
-    @room = Room.where(member_id:@members.ids).where(foster_id:@foster.id)  #@roomがnilかどうかで部屋判断する
-
+    @room = Room.All.where(member_id:@members.ids).where(foster_id:@foster.id)  #@roomがnilかどうかで部屋判断する
+  
     # @room = [{id:1, name: "test"},{id:2, name: "test2"}] ["test", "test2"] [1, 2, 3]   [[1,2,3],["test","test2"]]
     #@members = [{id:1, name: },{id:2, name: },{id:3, name: }]
     # rooms = current_foster.rooms

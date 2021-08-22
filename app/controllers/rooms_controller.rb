@@ -1,7 +1,12 @@
 class RoomsController < ApplicationController
   def show
-    @room = Room.find(params[:id])
+    @room = Room.All.find_by(id: params[:id])
     @message = Message.new
+    if @room == nil
+      redirect_to index_path, error: '存在しないidです。'
+      return
+    end
+
     @messages = @room.messages #ルームのメッセージ総てを取得
     if member_signed_in?
       if @room.member.id == current_member.id

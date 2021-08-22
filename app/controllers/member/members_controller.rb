@@ -21,7 +21,7 @@ class Member::MembersController < ApplicationController
   end
   
   def out
-    @member = member.find(current_member.id)
+    @member = Member.find(current_member.id)
     @member.update(is_deleted: true)
     # ログアウトさせる
     reset_session
