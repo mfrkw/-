@@ -11,6 +11,9 @@
         <%= link_to 'DM一覧へ', index_path %>
     <% end %>
     
+    <% if member_signed_in? %>
+        <%= link_to 'DM一覧へ', index_path %>
+    <% end %>
     
     <!--@members = [{id:1, name: },{id:2, name: },{id:3, name: }]-->
     <!--member= {id:1, last_name: ,first_name:""}-->

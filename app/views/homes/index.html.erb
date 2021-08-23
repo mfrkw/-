@@ -7,3 +7,12 @@
         <% end %>
     <% end %>
 <% end %>
+<% if member_signed_in? %>
+    <% if @room.present? %><!----roomがnilどうかで分岐させる>-->
+        <% @room.each do |room| %>
+            <%= link_to "チャットへ", room_path(room), class: "fas fa-dog" %> 
+            <!--%= link_to "チャットへ", room_path(current_foster.rooms.find_by(member_id: member.id)), class: "fas fa-dog" %> <!--member_idカラムの　member.id を探す-->
+            <%= room.foster.last_name %><%= room.foster.first_name %> さんからＤＭが届いています。
+        <% end %>
+    <% end %>
+<% end %>
