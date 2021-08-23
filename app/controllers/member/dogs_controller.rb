@@ -15,7 +15,6 @@ class Member::DogsController < ApplicationController
     if @dog == nil
       redirect_to foster_dogs_path, error: '存在しないidです。'
     end
-    # @room = Room.find_by(foster_id: @dog.id, member_id: current_member.id)
 
     if member_signed_in?
       @foster = @dog.foster #12行目の@dogのfosterを使う
