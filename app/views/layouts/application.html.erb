@@ -48,15 +48,17 @@
       <ul class="nav-item">
         <%= link_to "犬の一覧", member_dogs_path, class: "fas fa-dog" %>
       </ul>
-    <% end %>
+      <% end %>
     </header>
-
+    
     <% if flash[:notice] %>
       <p class="alert alert-success">
         <%= flash[:notice] %>
       </p>
     <% end %>
     <%= yield %>
-
+    <footer class="fixed-bottom">
+  	  <p>Matchingbow <i class="far fa-grin"></i></p>
+    </footer>
   </body>
 </html>

@@ -3,8 +3,19 @@ class Member::LikesController < ApplicationController
   
   def index
     @member =  current_member
-    @likes = Like.where(member_id: @member.id)
-  end 
+    @likes = Like.All.where(member_id: @member.id)
+#    @dog = Dog.All.find_by(id: params[:id])
+#    if @likes == nil
+#      redirect_to member_likes_path
+#    end
+    
+    # @dog = Dog.All.find_by(id: params[:id])
+    # if @dog == nil
+    #   redirect_to member_likes_path
+    # end
+    
+  end
+
 
   def create
     @like = current_member.likes.create(dog_id: params[:dog_id])

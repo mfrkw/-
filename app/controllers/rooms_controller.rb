@@ -1,7 +1,14 @@
 class RoomsController < ApplicationController
   def show
-    @room = Room.All.find_by(id: params[:id])
     @message = Message.new
+    if foster_signed_in?
+      @room = Room.AllMember.find_by(id: params[:id])
+    elsif member_signed_in?
+      @room = Room.AllFoster.find_by(id: params[:id])
+    else
+      redirect_to "/"
+    end
+
     if @room == nil
       redirect_to index_path, error: '存在しないidです。'
       return

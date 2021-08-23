@@ -20,7 +20,7 @@ class Foster::DogsController < ApplicationController
     @dog = Dog.new(dog_params)
     @dog.foster_id = current_foster.id
     if @dog.save
-    redirect_to  thanx_foster_dogs_path, notice: '登録が完了しました'
+    redirect_to  thanx_foster_dogs_path
     else
       render :new, notice: '登録に失敗しました'
     end

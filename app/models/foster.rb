@@ -15,4 +15,5 @@ class Foster < ApplicationRecord
   end
   # self=ログインしようとしている会員
   # active_for_authentication?がtrueを返せばログインできる。falseを返せばログインできない。
+
 end

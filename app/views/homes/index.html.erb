@@ -3,7 +3,7 @@
         <% @room.each do |room| %>
             <%= link_to "チャットへ", room_path(room), class: "fas fa-dog" %> 
             <!--%= link_to "チャットへ", room_path(current_foster.rooms.find_by(member_id: member.id)), class: "fas fa-dog" %> <!--member_idカラムの　member.id を探す-->
-            <%= room.member.last_name %><%= room.member.first_name %> さんからＤＭが届いています。
+            <%= room.member.last_name %><%= room.member.first_name %> さんとのＤＭです。
         <% end %>
     <% end %>
 <% end %>
@@ -12,7 +12,7 @@
         <% @room.each do |room| %>
             <%= link_to "チャットへ", room_path(room), class: "fas fa-dog" %> 
             <!--%= link_to "チャットへ", room_path(current_foster.rooms.find_by(member_id: member.id)), class: "fas fa-dog" %> <!--member_idカラムの　member.id を探す-->
-            <%= room.foster.last_name %><%= room.foster.first_name %> さんからＤＭが届いています。
+            <%= room.foster.last_name %><%= room.foster.first_name %> さんとのＤＭです。
         <% end %>
     <% end %>
 <% end %>

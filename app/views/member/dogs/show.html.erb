@@ -1,47 +1,40 @@
-<div class="container">
-  <div class="row">
-    <div class="col text-center">
-      <%= attachment_image_tag @dog, :image, :fill, 500, 500, format: 'jpeg' %>
+<div class= "container">
+  <div class="row mt-5">
+    <div class="col-md-6 mt-10">
+      <%= attachment_image_tag @dog, :image, :fill, 400, 400, format: 'jpeg' %>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-md-7 text-center mt-4">
-      <strong><%= @dog.name %></strong>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-8 text-right">
-    <p>紹介</p><br />
-      <%= @dog.introduction %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-4">
-      <p>遊べる地域</p>
-      <%= @dog.area %>
-    </div>
-  </div>
-  <div id="like_<%= @dog.id %>">
-    <%= render "member/likes/like", dog: @dog %>
-  </div>
-</div>
+    <div class="col-md-6">
+      <h4 class="content">名前</h4>
+        <%= @dog.name %>
+      <br/>
+      <h4 class="content">紹介</h4>
+         <%= @dog.introduction %>
+      <h4 class="content">遊べる地域</h4>
+        <%= @dog.area %>
+        
+      <div id="like_<%= @dog.id %>">
+      <%= render "member/likes/like", dog: @dog %>
+      </div>
 
+    
 <!--if create or show => @room nil?-->
 <!--% if @isRoom == true %> -->
 
-<% if member_signed_in? %>
-  <% if @room.present? %><!----roomがnilどうかで分岐させる>@roomの中身があればtrueなければfalse-->
-    <%= link_to "もう一度DMを送る", room_path(@room), class: "fas fa-dog" %>
-  <% else %>
+      <% if member_signed_in? %>
+        <% if @room.present? %><!----roomがnilどうかで分岐させる>@roomの中身があればtrueなければfalse-->
+          <%= link_to "もう一度DMを送る", room_path(@room), class: "fas fa-dog" %>
+        <% else %>
+      
+          <%= form_tag(rooms_path, method: :post) do %>
+            <%= hidden_field_tag :foster_id, @foster.id %> <!--:foster_idはキーの名前 value で渡したい値、つまり@foster.idを渡すtagの場合は構文がかわる-->
+            <%= hidden_field_tag :dog_id, @dog.id %> <!--<form_tagはモデルもたない>-->
+            <%= submit_tag "チャットを始める" %>
+          <% end %>
+        <% end %>
+      
+      <% end %>
+      
 
-    <%= form_tag(rooms_path, method: :post) do %>
-      <%= hidden_field_tag :foster_id, @foster.id %> <!--:foster_idはキーの名前 value で渡したい値、つまり@foster.idを渡すtagの場合は構文がかわる-->
-      <%= hidden_field_tag :dog_id, @dog.id %> <!--<form_tagはモデルもたない>-->
-      <%= submit_tag "チャットを始める" %>
-    <% end %>
-  <% end %>
-
-<% end %>
-
-
-
+    </div>
+  </div>
+</div>
