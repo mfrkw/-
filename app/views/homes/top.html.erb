@@ -4,15 +4,15 @@
             <h1>ようこそ　Matching bowへ</h1>
             <p>犬とふれあいたい方と保護犬をマッチングさせるサイトです</p>
             <%= link_to "犬と遊びたい！", new_member_session_path, class: "btn btn-primary" %>
-            <%= link_to "犬を遊ばせたい", new_foster_session_path, class: "btn btn-primary" %>
+            <%= link_to "犬を遊ばせたい！", new_foster_session_path, class: "btn btn-success" %>
         </div>
     </div>
     <% if foster_signed_in? %>
-        <%= link_to 'DM一覧へ', index_path %>
+        <%= link_to 'DM一覧へ', index_path, class: "far fa-envelope" %>
     <% end %>
     
     <% if member_signed_in? %>
-        <%= link_to 'DM一覧へ', index_path %>
+        <%= link_to 'DM一覧へ', index_path, class: "far fa-envelope" %>
     <% end %>
     
     <!--@members = [{id:1, name: },{id:2, name: },{id:3, name: }]-->

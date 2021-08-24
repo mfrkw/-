@@ -41,7 +41,7 @@
         <%= link_to "犬の一覧", member_dogs_path, class: "fas fa-dog" %>
       </ul>
       <ul class="nav-item">
-        <%= link_to "お気に入り一覧", member_likes_path, class: "fas fa-dog" %>
+        <%= link_to "お気に入り一覧", member_likes_path, class: "fas fa-heart" %>
       </ul>
       <% else %>
 
@@ -56,6 +56,7 @@
         <%= flash[:notice] %>
       </p>
     <% end %>
+    <p class="alert1"><%= alert %></p>
     <%= yield %>
     <footer class="fixed-bottom">
   	  <p>Matchingbow <i class="far fa-grin"></i></p>

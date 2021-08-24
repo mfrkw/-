@@ -22,7 +22,8 @@ class Foster::DogsController < ApplicationController
     if @dog.save
     redirect_to  thanx_foster_dogs_path
     else
-      render :new, notice: '登録に失敗しました'
+      flash[:alert] = "登録できませんでした"
+      render :new
     end
   end
 
