@@ -20,14 +20,8 @@
  @import 'font-awesome';
 
 
-.nav-item{
- text-align: center;
-}
 
-.nav-item{
-  color: #330000;
-  text-align: center;
-}
+
 .left-message{
   text-align: left;
 }
@@ -43,7 +37,13 @@
 }
 
 .chat-field{
-  background-color: #7494C0;
+  padding:0;
+  background: #7494c0;    /* LINEトークルーム背景色 */
+  overflow: hidden;
+  max-width: 80%;
+  margin: 20px auto;
+  font-size: 80%;
+  
 }
 
 footer {
@@ -54,6 +54,9 @@ footer {
   background-color: #e3f2fd;
 }
 
+.navbar navbar-expand-lg{
+   background-color: #e3f2fd;
+}
 .content{
   border-bottom: solid 1px #deb887;
   color: #2f4f4f;
@@ -73,4 +76,8 @@ footer {
 .alert1{
   color: red;
   text-align: center;
+}
+
+.line-btn{
+  display: inline-block;
 }

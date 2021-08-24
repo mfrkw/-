@@ -1,6 +1,7 @@
 class HomesController < ApplicationController
 
   def top
+    @dogs = Dog.All
   end
 
   def index
@@ -18,7 +19,6 @@ class HomesController < ApplicationController
     end
     # @room = [{id:1, name: "test"},{id:2, name: "test2"}] ["test", "test2"] [1, 2, 3]   [[1,2,3],["test","test2"]]
     #@members = [{id:1, name: },{id:2, name: },{id:3, name: }]
-    
     
   end
 end

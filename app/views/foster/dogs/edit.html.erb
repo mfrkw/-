@@ -1,26 +1,58 @@
 <div class="container">
   <div class="row">
-    <div class="col">
+    <div class="col-md-8 ml-md-auto">
       <%= form_with model:@dog, url: foster_dog_path, local:true do |f| %>
-  
-        <p>画像</p>
-          <%= f.attachment_field :image %>
-      
-        <p>名前</p>
-          <%= f.text_field :name %>
-      
-        <p>紹介文</p>
-          <%= f.text_area :introduction %>
-      
-        <p>犬種</p>
-          <%= f.text_field :dog_breed %>
-      
-        <p>遊べる地域</p>
-          <%= f.text_field :area %>
-          <%= f.submit '変更を保存' %>
-        
+        <table>
+          <tr>
+            <th><%= f.label :"画像" %></th>
+            <td>
+              <div class="form-group">
+                <%= f.attachment_field :image %>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th><%= f.label :"犬の名前" %></th>
+            <td>
+              <div class="form-group">
+                <%= f.text_field :name %>
+              </div>  
+            </td>
+          </tr>
+          <tr>
+            <th><%= f.label :"紹介文" %></th>
+            <td>
+              <div class="form-group">
+                <%= f.text_area :introduction %>
+              </div> 
+            </td>
+          </tr>
+          <tr>
+            <th><%= f.label :"犬種" %></th>
+            <td>
+              <div class="form-group">
+                <%= f.text_field :dog_breed %>
+              </div> 
+            </td>
+          </tr>
+          <tr>
+            <th><%= f.label :"遊べる地域" %></th>
+            <td>
+              <div class="form-group">
+                <%= f.text_field :area %>
+              </div> 
+            </td>
+          </tr>
+          <tr>
+            <th></th>
+            <td>
+              <div class="actions">
+                <%= f.submit '変更を保存', class: "btn btn-outline-info" %>
+              </div> 
+            </td>
+          </tr>
+        </table>
       <% end %>
-        
     </div>
   </div>
 </div>

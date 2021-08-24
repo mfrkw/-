@@ -1,6 +1,7 @@
 <div class="container">
-  <div class="row">
-    <div class="col-md-6">
+  <div class="row text-center">
+    <div class="col">
+      <% if foster_signed_in? && @foster.id == current_foster.id %>
       <h2 class="head-line text-center title_h2">マイページ</h2>
       
       <table class="table table-bordered table-condensed" >
@@ -28,8 +29,8 @@
         </tbody>
       </table>
       <%= link_to '編集する', edit_foster_foster_path, class: "btn btn-outline-secondary" %>
-      <% if foster_signed_in? && @foster.id == current_foster.id %>
-        <%= link_to "退会", out_foster_fosters_path, method: :PATCH, "data-confirm" => "本当に退会しますか？", class: "btn btn-outline-danger" %>
+      <%= link_to "退会", out_foster_fosters_path, method: :PATCH, "data-confirm" => "本当に退会しますか？", class: "btn btn-outline-danger" %>
+    
       <% end %>
     </div>
   </div>

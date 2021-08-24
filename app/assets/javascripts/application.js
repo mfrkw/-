@@ -19,3 +19,13 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+/*global $*/
+
+$(function() {
+  $('#slide').slick({
+      dots: true, //スライドの下にドットのナビゲーションを表示
+      autoplay: true, //自動再生
+      autoplaySpeed: 6000, //再生スピード
+  });
+});

@@ -7,6 +7,9 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
   </head>
 
   <body>
@@ -14,43 +17,44 @@
       <%= link_to root_path do %>
         <%= image_tag 'logo.png', :size => '130x130'%>
       <% end %>
-
+      <ul class="navbar-nav ml-auto">　
       <% if foster_signed_in? %>
 
-      <ul class="nav-item">
-        <%= link_to "ログアウト", destroy_foster_session_path, method: :delete, class: 'fas fa-sign-out-alt faa-wrench nav-link badge badge-pill' %>
-      </ul>
-      <ul class="nav-item">
-        <%= link_to "マイページ", foster_foster_path(current_foster.id), class: 'fas fa-user faa-wrench nav-link badge badge-pill'  %>
-      </ul>
-      <ul class="nav-item">
-        <%= link_to "犬の登録", new_foster_dog_path, class: "fas fa-paw"  %>
-      </ul>
-      <ul class="nav-item">
-        <%= link_to "犬の一覧", foster_dogs_path, class: "fas fa-dog" %>
-      </ul>
-      
-      <% elsif member_signed_in? %>
-      <ul class="nav-item">
-        <%= link_to "ログアウト", destroy_member_session_path, method: :delete, class: 'fas fa-sign-out-alt faa-wrench nav-link badge badge-pill' %>
-      </ul>
-      <ul class="nav-item">
-        <%= link_to "マイページ", member_member_path(current_member.id), class: 'fas fa-user faa-wrench nav-link badge badge-pill'  %>
-      </ul>
-      <ul class="nav-item">
-        <%= link_to "犬の一覧", member_dogs_path, class: "fas fa-dog" %>
-      </ul>
-      <ul class="nav-item">
-        <%= link_to "お気に入り一覧", member_likes_path, class: "fas fa-heart" %>
-      </ul>
-      <% else %>
+        <ul class="nav-item">
+          <%= link_to "ログアウト", destroy_foster_session_path, method: :delete, class: 'fas fa-sign-out-alt faa-wrench nav-link badge badge-pill' %>
+        </ul>
+        <ul class="nav-item">
+          <%= link_to "マイページ", foster_foster_path(current_foster.id), class: 'fas fa-user faa-wrench nav-link badge badge-pill'  %>
+        </ul>
+        <ul class="nav-item">
+          <%= link_to "犬の登録", new_foster_dog_path, class: "fas fa-paw"  %>
+        </ul>
+        <ul class="nav-item">
+          <%= link_to "犬の一覧", foster_dogs_path, class: "fas fa-dog" %>
+        </ul>
 
-      <ul class="nav-item">
-        <%= link_to "犬の一覧", member_dogs_path, class: "fas fa-dog" %>
+        <% elsif member_signed_in? %>
+        <ul class="nav-item">
+          <%= link_to "ログアウト", destroy_member_session_path, method: :delete, class: 'fas fa-sign-out-alt faa-wrench nav-link badge badge-pill' %>
+        </ul>
+        <ul class="nav-item">
+          <%= link_to "マイページ", member_member_path(current_member.id), class: 'fas fa-user faa-wrench nav-link badge badge-pill'  %>
+        </ul>
+        <ul class="nav-item">
+          <%= link_to "犬の一覧", member_dogs_path, class: "fas fa-dog" %>
+        </ul>
+        <ul class="nav-item">
+          <%= link_to "お気に入り一覧", member_likes_path, class: "fas fa-heart" %>
+        </ul>
+        <% else %>
+
+        <ul class="nav-item">
+          <%= link_to "犬の一覧", member_dogs_path, class: "fas fa-dog" %>
+        </ul>
+        <% end %>
       </ul>
-      <% end %>
     </header>
-    
+
     <% if flash[:notice] %>
       <p class="alert alert-success">
         <%= flash[:notice] %>
@@ -58,6 +62,7 @@
     <% end %>
     <p class="alert1"><%= alert %></p>
     <%= yield %>
+
     <footer class="fixed-bottom">
   	  <p>Matchingbow <i class="far fa-grin"></i></p>
     </footer>
