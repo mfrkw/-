@@ -1,29 +1,17 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-4 text-left">
-      <p><strong style="background-color: #eeeeee; font-size: 25px;">犬一覧</strong>（全<%= @dogs.count %>件）</p>
-    </div>
+    （全<%= @dogs.count %>頭）
+      <% @dogs.each do |dog| %>
+        <div class="col-md-6">
+          <%= link_to member_dog_path(dog.id) do %>
+          <%= attachment_image_tag dog, :image, :fill, 150, 150, format: 'jpeg'%>
+          <% end %>
+          <%= dog.name %>
+          犬種: <%= dog.dog_breed %>
+          <div id="like_<%= dog.id %>">
+          <%= render "member/likes/like", dog: dog %>
+          </div> 
+        </div>  
+      <% end %>
   </div>
 </div>
-
-<div class="main">
-  <% @dogs.each do |dog| %>
-    <ul class="main-item-list">
-      <li class="item">
-        <section class="card" >
-          <%= link_to member_dog_path(dog.id) do %>
-            <%= attachment_image_tag dog, :image, :fill, 200, 130, format: 'jpeg', fallback: "no_image.jpg", size: "200x130" %>
-          <% end %>
-          <div class="card-content">
-            <strong><p class="card-title"><%= dog.name %></p></strong>
-            <strong><p class="card-text"><%= dog.dog_breed %></p></strong>
-          </div>
-        </section>
-      </li>
-    </ul>
-  <% end %>
-</div>
-<div id="like_<%= dog.id %>">
-<%= render "member/likes/like", dog: dog %>
-</div>
-<% end %>

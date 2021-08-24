@@ -21,11 +21,16 @@
 //= require_tree .
 
 /*global $*/
+$(document).on('turbolinks:load', function() {
+  // turbolinksを無効化したい処理
 
 $(function() {
   $('#slide').slick({
-      dots: true, //スライドの下にドットのナビゲーションを表示
+      
       autoplay: true, //自動再生
-      autoplaySpeed: 6000, //再生スピード
+      autoplaySpeed: 5000, //再生スピード
   });
+});
+
+
 });

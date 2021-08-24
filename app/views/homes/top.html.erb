@@ -1,11 +1,17 @@
 <div class="container">
-    <div class="row">
-        <div class="col text-center">
+    <div class="row text-center">
+        <div class="col">
             <h1>ようこそ　Matching bowへ</h1>
             <p>犬とふれあいたい方と保護犬をマッチングさせるサイトです</p>
             <%= link_to "犬と遊びたい！", new_member_session_path, class: "btn btn-primary" %>
             <%= link_to "犬を遊ばせたい！", new_foster_session_path, class: "btn btn-success" %>
         </div>
+            <div id="slide">
+            <% @dogs.each do |dog| %>
+                <%= attachment_image_tag dog, :image, :fill, 1200, 800,format: 'jpeg'%>
+            <% end %>
+            </div>    
+            
     </div>
     <br/>
     
@@ -16,12 +22,7 @@
     <% if member_signed_in? %>
         <%= link_to 'DM一覧へ', index_path, class: "far fa-envelope" %>
     <% end %>
-    
-    <div id="slide">
-        <% @dogs.each do |dog| %>
-            <%= attachment_image_tag dog, :image, :fill, 800, 800, format: 'jpeg'%>
-        <% end %>
-    </div>    
+</div>
     
     
     <!--@members = [{id:1, name: },{id:2, name: },{id:3, name: }]-->
