@@ -1,11 +1,12 @@
 class Member::DogsController < ApplicationController
+  
 
   def index
-    @dogs = Dog.All
+    @dogs = Dog.All.page(params[:page]).per(8)
   end
 
   def search
-   @dogs = Dog.All.search(params[:search])
+   @dogs = Dog.All.search(params[:search]).page(params[:page]).per(8)
   end
 
   def show

@@ -1,4 +1,5 @@
 class RoomsController < ApplicationController
+  
   def show
     @message = Message.new
     if foster_signed_in?

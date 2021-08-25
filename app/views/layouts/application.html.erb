@@ -32,7 +32,11 @@
         <ul class="nav-item">
           <%= link_to "犬の一覧", foster_dogs_path, class: "fas fa-dog" %>
         </ul>
-
+        <ul class="nav-item">
+          <%= link_to 'DM一覧へ', index_path, class: "fas fa-envelope" %>
+        </ul>
+        
+        
         <% elsif member_signed_in? %>
         <ul class="nav-item">
           <%= link_to "ログアウト", destroy_member_session_path, method: :delete, class: 'fas fa-sign-out-alt faa-wrench nav-link badge badge-pill' %>
@@ -46,6 +50,9 @@
         <ul class="nav-item">
           <%= link_to "お気に入り一覧", member_likes_path, class: "fas fa-heart" %>
         </ul>
+        <ul class="nav-item">
+           <%= link_to 'DM一覧へ', index_path, class: "fas fa-envelope" %>
+        </ul>
         <% else %>
 
         <ul class="nav-item">
@@ -54,7 +61,6 @@
         <% end %>
       </ul>
     </header>
-
     <% if flash[:notice] %>
       <p class="alert alert-success">
         <%= flash[:notice] %>

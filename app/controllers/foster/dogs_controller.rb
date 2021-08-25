@@ -2,7 +2,7 @@ class Foster::DogsController < ApplicationController
   before_action :authenticate_foster!
 
   def index
-    @dogs = Dog.All
+    @dogs = Dog.All.page(params[:page]).per(8)
   end
 
   def show

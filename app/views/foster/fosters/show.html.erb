@@ -1,14 +1,14 @@
+<% if foster_signed_in? && @foster.id == current_foster.id %>
 <div class="container">
   <div class="row text-center">
     <div class="col">
-      <% if foster_signed_in? && @foster.id == current_foster.id %>
-      <h2 class="head-line text-center title_h2">マイページ</h2>
+      <h2>マイページ</h2>
       
       <table class="table table-bordered table-condensed" >
         <tbody>
           <tr>
-            <td class="info">名前</td>
-            <td class="text-left"><%= @foster.last_name %><%= @foster.first_name %></td>
+            <td class="info col-3">名前</td>
+            <td class="text-left col-4"><%= @foster.last_name %><%= @foster.first_name %></td>
           </tr>
           <tr>
             <td class="info">メールアドレス</td>
@@ -31,9 +31,8 @@
       <%= link_to '編集する', edit_foster_foster_path, class: "btn btn-outline-secondary" %>
       <%= link_to "退会", out_foster_fosters_path, method: :PATCH, "data-confirm" => "本当に退会しますか？", class: "btn btn-outline-danger" %>
     
-      <% end %>
+      
     </div>
   </div>
 </div>
-
-
+<% end %>

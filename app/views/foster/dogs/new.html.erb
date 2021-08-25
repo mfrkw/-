@@ -1,10 +1,10 @@
 <%= form_with model:@dog, url: foster_dogs_path, local:true do |f| %>
 <div class="container">
-  <div class="row">
+  <div class="row mt-5">
     <div class="col-md-8 ml-md-auto">
         <table>
           <tr>
-            <th><%= f.label :"画像" %></th>
+            <td><%= f.label :"画像" %></td>
             <td>
               <div class="form-group">
                 <%= f.attachment_field :image %>
@@ -12,7 +12,7 @@
             </td>
           </tr>
           <tr>
-            <th><%= f.label :"犬の名前" %></th>
+            <td><%= f.label :"犬の名前" %></td>
             <td>
               <div class="form-group">
                 <%= f.text_field :name, placeholder: "太郎" %>
@@ -20,7 +20,7 @@
             </td>
           </tr>
           <tr>
-            <th><%= f.label :"紹介文" %></th>
+            <td><%= f.label :"紹介文" %></td>
             <td>
               <div class="form-group">
                 <%= f.text_area :introduction, placeholder: "散歩が大好きです" %>
@@ -28,7 +28,7 @@
             </td>
           </tr>
           <tr>
-            <th><%= f.label :"犬種" %></th>
+            <td><%= f.label :"犬種" %></td>
             <td>
               <div class="form-group">
                 <%= f.text_field :dog_breed, placeholder: "ゴールデンレトリバー" %>
@@ -36,7 +36,7 @@
             </td>
           </tr>
           <tr>
-            <th><%= f.label :"遊べる地域" %></th>
+            <td><%= f.label :"遊べる地域" %></td>
             <td>
               <div class="form-group">
                 <%= f.text_field :area, placeholder: "東京都〇〇区" %>

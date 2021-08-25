@@ -3,8 +3,8 @@ class Member::LikesController < ApplicationController
   
   def index
     @member =  current_member
-    @likes = Like.All.where(member_id: @member.id)
-#    @dog = Dog.All.find_by(id: params[:id])
+    @likes = Like.All.where(member_id: @member.id).page(params[:page]).per(8)
+#    @dog = Dog.All.find_by(id: params[:id])   
 #    if @likes == nil
 #      redirect_to member_likes_path
 #    end
