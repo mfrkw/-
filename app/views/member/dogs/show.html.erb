@@ -1,6 +1,6 @@
 <div class= "container">
   <div class="row mt-5">
-    <div class="col-md-6 mt-10">
+    <div class="col-md-6 mt-10 mb-10">
       <%= attachment_image_tag @dog, :image, :fill, 400, 400, format: 'jpeg' %>
     </div>
     <div class="col-md-5">
@@ -24,7 +24,7 @@
 
       <% if member_signed_in? %>
         <% if @room.present? %><!----roomがnilどうかで分岐させる>@roomの中身があればtrueなければfalse-->
-          <%= link_to "もう一度DMを送る", room_path(@room), class: "fas fa-dog" %>
+          <%= link_to "DMを送る", room_path(@room), class: "fas fa-dog" %>
         <% else %>
       
           <%= form_tag(rooms_path, method: :post) do %>
