@@ -12,28 +12,15 @@
             <%= link_to "犬を遊ばせたい！", new_foster_session_path, class: "btn btn-success" %>
 
             <br/>
-
         </div>
         <div class="col-md-4">
             <div id="slide">
             <% @dogs.each do |dog| %>
-                <%= attachment_image_tag dog, :image, :fill, 1200, 800,format: 'jpeg'%>
+                <%= attachment_image_tag dog, :image, :fill, 800, 900,format: 'jpeg'%>
             <% end %>
             </div>
         </div>
     </div>
-
-
-
-
-
-
-    <!--"far fa-envelope"-->
 </div>
-
-
-    <!--@members = [{id:1, name: },{id:2, name: },{id:3, name: }]-->
-    <!--member= {id:1, last_name: ,first_name:""}-->
-    <!--member.last_name-->
 
 

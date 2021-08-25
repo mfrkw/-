@@ -6,7 +6,7 @@
           <tr>
             <td><%= f.label :"画像" %></td>
             <td>
-              <div class="form-group">
+              <div class="form-group col-6">
                 <%= f.attachment_field :image %>
               </div>
             </td>
@@ -14,7 +14,7 @@
           <tr>
             <td><%= f.label :"犬の名前" %></td>
             <td>
-              <div class="form-group">
+              <div class="form-group col-6">
                 <%= f.text_field :name, placeholder: "太郎" %>
               </div>  
             </td>
@@ -22,7 +22,7 @@
           <tr>
             <td><%= f.label :"紹介文" %></td>
             <td>
-              <div class="form-group">
+              <div class="form-group col-8">
                 <%= f.text_area :introduction, placeholder: "散歩が大好きです" %>
               </div> 
             </td>
@@ -30,7 +30,7 @@
           <tr>
             <td><%= f.label :"犬種" %></td>
             <td>
-              <div class="form-group">
+              <div class="form-group col-6">
                 <%= f.text_field :dog_breed, placeholder: "ゴールデンレトリバー" %>
               </div> 
             </td>
@@ -38,7 +38,7 @@
           <tr>
             <td><%= f.label :"遊べる地域" %></td>
             <td>
-              <div class="form-group">
+              <div class="form-group col-6">
                 <%= f.text_field :area, placeholder: "東京都〇〇区" %>
               </div> 
             </td>
@@ -46,7 +46,7 @@
           <tr>
             <th></th>
             <td>
-              <div class="actions">
+              <div class="actions col-6">
                 <%= f.submit '登録', class: "btn btn-outline-info" %>
               </div> 
             </td>

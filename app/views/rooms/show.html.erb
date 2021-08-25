@@ -1,6 +1,6 @@
 <% if member_signed_in? %>
-<div class="container">
-  <h3><%= @foster.last_name %><%= @foster.first_name %>さんとのチャットルーム</h3>
+  <h3 class="text-center"><%= @foster.last_name %><%= @foster.first_name %>さんとのチャットルーム</h3>
+
   <div class="chat-field">
     <% @messages.each do |m| %>
       <!-- メッセージがmemberによるものだったら -->
@@ -19,31 +19,39 @@
     <% end %>
   </div>
 
-  <% elsif foster_signed_in?%>
-    <h3><%= @member.last_name %><%= @member.first_name %>さんとのチャットルーム</h3>
-    <div class="chat-field">
-      <% @messages.each do |m| %>
-        <!-- メッセージがmemberによるものだったら -->
-        <% if m.is_member %>
-          <!-- メッセージを左に寄せる -->
-          <div class="left-message">
-            <%= m.content %>
-          </div>
-        <!-- メッセージがfosterによるものだったら -->
-        <% else %>
-          <!-- メッセージを右に寄せる -->
-          <div class="right-message-foster">
-            <%= m.content %>
-          </div>
-        <% end %>
+<% elsif foster_signed_in?%>
+    <h3 class="text-center"><%= @member.last_name %><%= @member.first_name %>さんとのチャットルーム</h3>
+
+  <div class="chat-field">
+    <% @messages.each do |m| %>
+      <!-- メッセージがmemberによるものだったら -->
+      <% if m.is_member %>
+        <!-- メッセージを左に寄せる -->
+        <div class="left-message">
+          <%= m.content %>
+        </div>
+      <!-- メッセージがfosterによるものだったら -->
+      <% else %>
+        <!-- メッセージを右に寄せる -->
+        <div class="right-message-foster">
+          <%= m.content %>
+        </div>
       <% end %>
-    </div>
-  <% end %>
-  <div class="line-btn-text-center">
-    <%= form_for [@room, @message] do |f| %>
-      <%= f.text_field :content %>
-      <%= f.submit "メッセージを送る", class: "btn btn-secondary"%>
     <% end %>
+<% end %>
   </div>
-    
-</div>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="comment">
+          <%= form_for [@room, @message] do |f| %>
+            <%= f.text_field :content, class: "col-md-10" %>
+            <div class="comment-btn">
+              <%= f.submit "メッセージを送る", class: "btn btn-secondary"%>
+          <% end %>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+

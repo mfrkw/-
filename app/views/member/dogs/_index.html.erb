@@ -2,7 +2,6 @@
   <div class="row">
     <div class="container">
   <div class="row">
-    （全<%= @dogs.count %>頭）
       <% @dogs.each do |dog| %>
         <div class="col-md-3">
           <%= link_to member_dog_path(dog.id) do %>

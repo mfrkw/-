@@ -29,6 +29,7 @@ $(function() {
       
       autoplay: true, //自動再生
       autoplaySpeed: 5000, //再生スピード
+      infinite: true,　// 無限スクロールにするかどうか。最後の画像の次は最初の画像が表示される。
   });
 });
 
