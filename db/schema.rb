@@ -75,14 +75,6 @@ ActiveRecord::Schema.define(version: 2021_08_18_053850) do
     t.index ["room_id"], name: "index_messages_on_room_id"
   end
 
-  create_table "notices", force: :cascade do |t|
-    t.integer "dog_id"
-    t.integer "member_id"
-    t.integer "foster_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "rooms", force: :cascade do |t|
     t.integer "member_id"
     t.integer "foster_id"
