@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="row">
+  <div class="row text-center mt-5">
       <% @likes.each do |like| %>
         <div class="col-md-3 mb-5">
           <%= link_to member_dog_path(like.dog.id) do %>
