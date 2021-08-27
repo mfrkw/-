@@ -21,7 +21,7 @@
     
 <!--if create or show => @room nil?-->
 <!--% if @isRoom == true %> -->
-
+      <br/>
       <% if member_signed_in? %>
         <% if @room.present? %><!----roomがnilどうかで分岐させる>@roomの中身があればtrueなければfalse-->
           <%= link_to "DMを送る", room_path(@room), class: "fas fa-dog" %>
