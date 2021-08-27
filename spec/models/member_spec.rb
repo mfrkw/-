@@ -25,12 +25,6 @@ describe Member do
         expect(member.errors[:password]).to include("can't be blank")
       end
 
-      it "encrypted_passwordがない場合は登録できないこと" do
-        member = build(:member, encrypted_password: nil)
-        member.valid?
-        expect(member.errors[:encrypted_password]).to include("can't be blank")
-      end
-
       it "first_nameがない場合は登録できないこと" do
         user = build(:member, first_name: nil)
         user.valid?
@@ -58,14 +52,14 @@ describe Member do
       # パスワードの文字数テスト ▼
 
       it "passwordが6文字以上であれば登録できること" do
-        member = build(:member, password: "123456", encrypted_password: "123456")
+        member = build(:member, password: "123456", password_confirmation: "123456")
         expect(member).to be_valid
       end
 
       it "passwordが5文字以下であれば登録できないこと" do
-        member = build(:member, password: "12345", encrypted_password: "12345")
+        member = build(:member, password: "12345", password_confirmation: "12345")
         member.valid?
-        expect(member.errors[:encrypted_password]).to include("is too short (minimum is 6 characters)")
+        expect(member.errors[:password]).to include("is too short (minimum is 6 characters)")
       end
 
       # email 一意性制約のテスト ▼
@@ -79,10 +73,10 @@ describe Member do
 
       # 確認用パスワードが必要であるテスト ▼
 
-      it "passwordが存在してもencrypted_passwordがない場合は登録できないこと" do
-        member = build(:member, encrypted_password: "")
+      it "passwordが存在してもpassword_confirmationがない場合は登録できないこと" do
+        member = build(:member, password_confirmation: "")
         member.valid?
-        expect(member.errors[:encrypted_password]).to include("confirmation doesn't match Password")
+        expect(member.errors[:password_confirmation]).to include("doesn't match Password")
       end
   end
 end
