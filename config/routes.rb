@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     resources :dogs do
       collection do
         get 'thanx'
+        get 'search'
       end
     end
 
