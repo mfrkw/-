@@ -14,13 +14,15 @@
       <h4 class="content">遊べる地域</h4>
         <%= @dog.area %>
         
-    <div class="row mt-5">
-      <% if foster_signed_in? && current_foster.id == @dog.foster_id %>
-        <%= link_to '編集する', edit_foster_dog_path(@dog.id), class: "btn btn-outline-secondary" %>
-        <%= link_to '削除する', foster_dog_path(@dog.id), method: :DELETE, "data-confirm" => "本当に削除しますか？", class: "btn btn-outline-danger" %>
-      <% end %>
-    </div>
-
+      <div class="row mt-5">
+        <% if foster_signed_in? && current_foster.id == @dog.foster_id %>
+          <%= link_to '編集する', edit_foster_dog_path(@dog.id), class: "btn btn-outline-secondary" %>
+          <%= link_to '削除する', foster_dog_path(@dog.id), method: :DELETE, "data-confirm" => "本当に削除しますか？", class: "btn btn-outline-danger" %>
+        <% end %>
+        <div class="col text-right">
+          <%= link_to '戻る', foster_dogs_path, class: "btn btn-outline-primary" %>
+        </div>
+      </div>
     </div>
   </div>
 </div>

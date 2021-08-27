@@ -2,24 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.image-img {
-  border-radius: 50%;
-  -ms-transition-duration: 0.2s;
-  transition-duration : 0.2s;
-}
+
+
 
 .image:hover{
-  border-radius: 0%;
-  opacity: 0.8;
+  transform: rotateY(360deg);
+  transition: transform .5s;
 }
     
-div.circle a img{
-    border-radius: 50%;
-    -ms-transition-duration: 0.2s;
-    transition-duration : 0.2s;
-    }
- 
-div.circle a:hover img{
-    border-radius: 0%;
-    opacity: 0.8;
-    }
