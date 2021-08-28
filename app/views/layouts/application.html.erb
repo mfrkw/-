@@ -10,57 +10,59 @@
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <%= favicon_link_tag('favicon.ico') %>
   </head>
 
   <body>
-    <header class="navbar navbar-expand-lg" style="background-color: #e3f2fd;">
+    <header class="navbar navbar-expand-lg">
       <%= link_to root_path do %>
         <%= image_tag 'logo.png', :size => '130x130'%>
       <% end %>
-      <ul class="navbar-nav ml-auto">　
+      <ul class="navbar-nav ml-auto">
       <% if foster_signed_in? %>
 
         <ul class="nav-item">
-          <%= link_to "ログアウト", destroy_foster_session_path, method: :delete, class: 'fas fa-sign-out-alt faa-wrench nav-link badge badge-pill' %>
+          <%= link_to "ログアウト", destroy_foster_session_path, method: :delete, class: 'fas fa-sign-out-alt size' %>
         </ul>
         <ul class="nav-item">
-          <%= link_to "マイページ", foster_foster_path(current_foster.id), class: 'fas fa-user faa-wrench nav-link badge badge-pill'  %>
+          <%= link_to "マイページ", foster_foster_path(current_foster.id), class: 'fas fa-user size' %>
         </ul>
         <ul class="nav-item">
-          <%= link_to "犬の登録", new_foster_dog_path, class: "fas fa-paw"  %>
+          <%= link_to "犬の登録", new_foster_dog_path, class: "fas fa-paw size"  %>
         </ul>
         <ul class="nav-item">
-          <%= link_to "犬の一覧", foster_dogs_path, class: "fas fa-dog" %>
+          <%= link_to "犬の一覧", foster_dogs_path, class: "fas fa-dog size" %>
         </ul>
         <ul class="nav-item">
-          <%= link_to 'DM一覧へ', index_path, class: "fas fa-envelope" %>
+          <%= link_to 'DM一覧へ', index_path, class: "fas fa-envelope size" %>
         </ul>
-        
-        
+
+
         <% elsif member_signed_in? %>
         <ul class="nav-item">
-          <%= link_to "ログアウト", destroy_member_session_path, method: :delete, class: 'fas fa-sign-out-alt faa-wrench nav-link badge badge-pill' %>
+          <%= link_to "ログアウト", destroy_member_session_path, method: :delete, class: 'fas fa-sign-out-alt size' %>
         </ul>
         <ul class="nav-item">
-          <%= link_to "マイページ", member_member_path(current_member.id), class: 'fas fa-user faa-wrench nav-link badge badge-pill'  %>
+          <%= link_to "マイページ", member_member_path(current_member.id), class: 'fas fa-user size'  %>
         </ul>
         <ul class="nav-item">
-          <%= link_to "犬の一覧", member_dogs_path, class: "fas fa-dog" %>
+          <%= link_to "犬の一覧", member_dogs_path, class: "fas fa-dog size" %>
         </ul>
         <ul class="nav-item">
-          <%= link_to "お気に入り一覧", member_likes_path, class: "fas fa-heart" %>
+          <%= link_to "お気に入り一覧", member_likes_path, class: "fas fa-heart size" %>
         </ul>
         <ul class="nav-item">
-           <%= link_to 'DM一覧へ', index_path, class: "fas fa-envelope" %>
+           <%= link_to 'DM一覧へ', index_path, class: "fas fa-envelope size" %>
         </ul>
         <% else %>
 
         <ul class="nav-item">
-          <%= link_to "犬の一覧", member_dogs_path, class: "fas fa-dog" %>
+          <%= link_to "犬の一覧", member_dogs_path, class: "fas fa-dog size" %>
         </ul>
         <% end %>
       </ul>
     </header>
+    
     <% if flash[:notice] %>
       <p class="alert alert-success">
         <%= flash[:notice] %>

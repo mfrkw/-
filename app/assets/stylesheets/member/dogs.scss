@@ -6,7 +6,10 @@
 
 
 .image1:hover{
+  transform:scale(1.2,1.2);
+}
+    
+#slide:hover{
   transform: rotateY(360deg);
   transition: transform .5s;
 }
-    

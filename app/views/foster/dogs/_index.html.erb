@@ -2,9 +2,11 @@
   <div class="row mt-5 text-center">
       <% @dogs.each do |dog| %>
         <div class="col-md-3">
-          <%= link_to foster_dog_path(dog.id) do %>
-            <%= attachment_image_tag dog, :image, :fill, 150, 150, format: 'jpeg' %>
-          <% end %>
+          <div class="image1">
+            <%= link_to foster_dog_path(dog.id) do %>
+              <%= attachment_image_tag dog, :image, :fill, 150, 150, format: 'jpeg' %>
+            <% end %>
+          </div>  
           <p><%= dog.name %></p>
           <p>犬種: <%= dog.dog_breed %></p>
         </div>
