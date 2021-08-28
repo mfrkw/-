@@ -1,5 +1,4 @@
 class RoomsController < ApplicationController
-  
   def show
     @message = Message.new
     if foster_signed_in?
@@ -10,12 +9,12 @@ class RoomsController < ApplicationController
       redirect_to "/"
     end
 
-    if @room == nil
+    if @room.nil?
       redirect_to index_path, error: '存在しないidです。'
       return
     end
 
-    @messages = @room.messages #ルームのメッセージ総てを取得
+    @messages = @room.messages # ルームのメッセージ総てを取得
     if member_signed_in?
       if @room.member.id == current_member.id
         @foster = @room.foster
@@ -29,20 +28,18 @@ class RoomsController < ApplicationController
         redirect_to "/"
       end
     else
-       redirect_to "/"
+      redirect_to "/"
     end
   end
 
   def create
     if member_signed_in?
-      # foster_deleted = !!Foster.find_by(id: params[:foster_id])&.is_deleted #trueだったら退会済み　false=退会 &.をつけるとエラーを無視する  find_byでnil !!必ずbooleanで返す(nilをbooleanに)
-
-      #memberがログインしてたらmember_idを, fosterがログインしてたらfoster_idを@roomにいれる
+      # memberがログインしてたらmember_idを, fosterがログインしてたらfoster_idを@roomにいれる
       @room = Room.new(foster_id: params[:foster_id])
       @room.member_id = current_member.id
 
     end
-    if @room.save  #存在するfosterだったら保存する　&&=かつ
+    if @room.save # 存在するfosterだったら保存する　&&=かつ
       redirect_to :action => "show", :id => @room.id
     else
       redirect_to "/"

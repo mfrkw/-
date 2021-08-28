@@ -4,14 +4,14 @@ class Foster::DogsController < ApplicationController
   def index
     @dogs = Dog.All.page(params[:page]).per(8)
   end
-  
+
   def search
-   @dogs = Dog.All.search(params[:search]).page(params[:page]).per(8)
+    @dogs = Dog.All.search(params[:search]).page(params[:page]).per(8)
   end
 
   def show
     @dog = Dog.All.find_by(id: params[:id])
-    if @dog == nil
+    if @dog.nil?
       redirect_to foster_dogs_path, error: '存在しないidです。'
     end
   end
@@ -24,7 +24,7 @@ class Foster::DogsController < ApplicationController
     @dog = Dog.new(dog_params)
     @dog.foster_id = current_foster.id
     if @dog.save
-    redirect_to  thanx_foster_dogs_path
+      redirect_to thanx_foster_dogs_path
     else
       flash[:alert] = "登録できませんでした"
       render :new
@@ -55,6 +55,4 @@ class Foster::DogsController < ApplicationController
   def dog_params
     params.require(:dog).permit(:name, :area, :image, :introduction, :dog_breed, :foster_id)
   end
-
-
 end
