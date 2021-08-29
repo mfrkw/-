@@ -16,7 +16,7 @@ class Member::DogsController < ApplicationController
     end
 
     if member_signed_in?
-      @foster = @dog.foster # 12行目の@dogのfosterを使う
+      @foster = @dog.foster 
       @dog = Dog.All.find_by(id: params[:id])
       @room = Room.where(member_id: current_member.id).where(foster_id: @foster.id).first
       # @roomがnilかどうかで部屋判断する

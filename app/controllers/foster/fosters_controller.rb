@@ -10,10 +10,12 @@ class Foster::FostersController < ApplicationController
   end
 
   def update
-    foster = Foster.find(current_foster.id)
-    if foster.update(foster_params)
-      redirect_to foster_foster_path, notice: '変更しました'
+    @foster = Foster.find(current_foster.id)
+    if @foster.update(foster_params)
+      flash[:notice] = "登録情報を変更しました"
+      redirect_to foster_foster_path
     else
+      flash[:alert] = "登録情報を変更できませんでした"
       render :edit
     end
   end

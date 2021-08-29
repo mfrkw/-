@@ -10,15 +10,16 @@ class Member::MembersController < ApplicationController
   end
 
   def update
-    member = Member.find(current_member.id)
-    if member.update(member_params)
+    @member = Member.find(current_member.id)
+    if @member.update(member_params)
       flash[:notice] = "登録情報を変更しました"
-      redirect_to member_member_path
+      # redirect_to member_member_path
     else
       flash[:alert] = "登録情報を変更できませんでした"
       render :edit
     end
   end
+
 
   def out
     @member = Member.find(current_member.id)
@@ -36,4 +37,5 @@ class Member::MembersController < ApplicationController
     params.require(:member).permit(:last_name, :first_name, :telephone_number, :postal_code,
                                    :address, :email)
   end
+
 end
