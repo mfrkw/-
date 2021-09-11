@@ -1,6 +1,6 @@
 class RoomsController < ApplicationController
   def show
-    @message = Message.new
+      @message = Message.new
     if foster_signed_in?
       @room = Room.AllMember.find_by(id: params[:id])
     elsif member_signed_in?
@@ -46,11 +46,5 @@ class RoomsController < ApplicationController
     end
   end
 
-  # private
-  # def room_foster_params
-  #   params.permit(:foster_id) #退会してないfosterかどうか
-  # end
-  # def room_member_params
-  #   params.require(:room).permit(:member_id)
-  # end
+ 
 end
